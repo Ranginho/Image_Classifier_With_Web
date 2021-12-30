@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rangos Image Classifier</title>
+        <link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel = "stylesheet" integrity = "sha384-BmbxuPwqa2lc/FvzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel = "stylesheet" href = "{{url_for('static', filename='home.css')}}">
+    </head>
+    <body>
+        <h1>Image Classifier</h1>
+        <form method = "post" action = "/" enctype = "multipart/form-data">
+            <dl>
+                <p>
+                    <input type = "file" name = "files[]" multiple = "true" autocomplete = "off" required>
+                    <input type = "submit" value = "predict">
+                </p>
+            </dl>
+        </form>
+
+
+        <p>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li> {{message}}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        </p>
+        {% if filenames %}
+            {% for filename in filenames %}
+                <div style = "padding:20px; float:left;">
+                    <img width = "500" src = "{{url_for('display_image', filename=filename)}}">
+                    <p> Prediction for this image is {{prediction['./static/uploads/' + filename]}}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </body>
+</html>
