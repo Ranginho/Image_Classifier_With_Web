@@ -6,3 +6,6 @@ There is ipynb notebook in folder 'model' where you can see how I trained model,
 
 ## RUN:
 If you are in app directory(there are folders static, templates and file web_part) you can write 'python web_part.py' in your cmd and it will automatically open browser, project will be deployed on 'localhost:3000' but you can change it from 'web_part.py' file on line 89. You can upload any number of images(only 'jpg' and 'png' format) and after clicking on 'predict' button you will see results. After you  have finished using this project, you can close your tab in browser and quit from your cmd(ctrl + c).
+
+## VISUAL:
+![example](https://user-images.githubusercontent.com/85623531/162536188-b6332b3d-af36-4b26-9cf2-990083fe426b.PNG)
