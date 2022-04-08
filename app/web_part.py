@@ -65,7 +65,7 @@ def upload_image():
             flash('Allowed image types are: jpg, png')
             return redirect(request.url)
     # Before this line we have images upload part and after this line we get predictions for each photo
-    model = keras.models.load_model('../model/NeironAI.h5')
+    model = keras.models.load_model('../model/classification.h5')
     classification = {}
     for path in image_paths:
         result = model_prediction(path, model)
